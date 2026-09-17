@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maite Oregi Decoración | Interiorismo en Orio, Gipuzkoa</title>
+<meta name="description" content="Estudio de interiorismo y reformas integrales en Orio, Gipuzkoa. Diseño de interiores, mobiliario, iluminación y decoración a medida.">
+<meta property="og:title" content="Maite Oregi Decoración — Interiorismo en Orio, Gipuzkoa">
+<meta property="og:description" content="Diseño de interiores y reformas integrales a medida en Orio y toda Gipuzkoa.">
+<meta property="og:locale" content="es_ES">
+<!--
+  ============================================================
+  MAITE OREGI DECORACIÓN — landing one-page (DEMO / propuesta comercial)
+  ------------------------------------------------------------
+  17/09: contexto real — Mnr ha conseguido un lead (llamada en frío)
+  con la clienta real, "Maite Oregi Decoración" (Orio, Gipuzkoa). Su
+  dominio (maiteoregi.com) hoy solo muestra la página por defecto del
+  hosting; no tiene web propia. Esta demo es la propuesta de
+  "escaparate" sin compromiso — todavía no confirmada.
+
+  Política de contenido: los textos de esta página son ya redacción
+  final (no placeholder "[EJEMPLO]"), escritos con criterio a partir
+  de sus categorías de trabajo reales (visibles en su Instagram
+  público). No se inventa ningún dato verificable de su negocio real
+  (precio, dirección exacta, teléfono, testimonios, años de
+  actividad) — eso queda pendiente de que ella lo confirme y lo
+  aporte antes de publicar nada de verdad. Las 6 fotos son capturas
+  reales que Mnr guardó a mano de publicaciones públicas de
+  @maite_oregi (recortadas aquí para quitar precios/textos de
+  anuncio y el icono del carrusel de Instagram).
+
+  SEO: sin WordPress ni plugin de turno, el peso recae en el propio
+  HTML — un único <h1> con las palabras clave principales
+  (interiorismo, reformas integrales, Orio, Gipuzkoa), <title> y meta
+  description alineados, y jerarquía de encabezados (h1 → h2 → h3)
+  sin repetir la misma frase en cada nivel.
+
+  Color: tema oscuro cálido como identidad (paredes negro mate, gris
+  "nardo", madera wengué, latón) alternado por secciones con un tono
+  papel/lino claro (variable --paper) para evitar que la página entera
+  se sienta "abrasante" en un solo tono. El sistema de tokens permite
+  aplicar la clase .section-light a cualquier sección para invertir
+  sus colores de texto/fondo automáticamente — ver comentario junto a
+  esa clase en el CSS.
+  ============================================================
+-->
+
+<style>
+  /* ---------- Fuentes ---------- */
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..600;1,9..144,400..500&family=Archivo:wght@400;500;600;700&display=swap');
+
+  /* ---------- Tokens ---------- */
+  :root {
+    /* Color — paleta v2, ajustada al local real (según descripción de
+       Mnr, que lo ha visitado): paredes negro mate con grises "nardo"
+       oscuros, madera wengué, toques de roble miel y luz cálida de
+       lámparas. Tema único oscuro — decisión de marca, no un modo
+       "dark mode" añadido encima de un diseño claro. */
+    --bg:        #17140F;   /* pared negro mate, con fondo cálido */
+    --bg-alt:    #241E16;   /* gris "nardo" oscuro — secciones alternas */
+    --surface:   #1D1811;   /* superficie de tarjetas / cabecera al hacer scroll */
+    --ink:       #F3EADA;   /* texto — marfil cálido, como papel bajo luz de lámpara */
+    --ink-soft:  #B6A990;   /* texto secundario — taupe cálido */
+    --wood:      #4A2E1D;   /* madera wengué — usada en el menú móvil */
+    --primary:   #D3A05A;   /* latón / luz cálida — el acento que pidió Mnr */
+    --primary-2: #E6B571;   /* variante clara del acento, para hover */
+    --accent:    #9C3F2E;   /* brasa/terracota apagada — acento secundario, raro */
+    --line:      #3B3325;   /* líneas y bordes sobre fondo oscuro */
+    --on-primary: #1B1710;  /* texto sobre el acento latón (que es claro) */
+
+    /* Sección clara alterna — mismo espíritu (cálido, natural, sin
+       blanco puro), para romper la monotonía de tanto negro seguido.
+       Contraste verificado (WCAG): ink-on-paper 12:1, ink-soft 5.8:1,
+       accent-on-paper 4.75:1 — todos pasan AA para texto normal. */
+    --paper:            #E4D9C4;  /* lino/beige cálido — sección clara */
+    --ink-on-paper:      #241C13;
+    --ink-soft-on-paper: #5C4E3B;
+    --line-on-paper:     rgba(36, 28, 19, .16);
+
+    font-size: 16px;
+  }
+
+  :root { color-scheme: dark; }
+
+  /* ---------- Reset ligero ---------- */
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+  button { font: inherit; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  .display {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-optical-sizing: auto;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary-2);
+  }
+
+  /* Sección clara: se aplica a una <section> completa (no a un .container
+     interior), para que el color de fondo llegue de lado a lado. Redefine
+     los tokens de texto/línea localmente — como el resto de componentes ya
+     usa var(--ink), var(--ink-soft) y var(--line) en vez de colores fijos,
+     todo lo que haya dentro (títulos, párrafos, eyebrows) se adapta solo,
+     sin tener que duplicar reglas. Así se puede alternar clara/oscura en
+     cualquier sección futura solo añadiendo esta clase. */
+  .section-light {
+    background: var(--paper);
+    color: var(--ink-on-paper);
+    --ink: var(--ink-on-paper);
+    --ink-soft: var(--ink-soft-on-paper);
+    --primary-2: var(--accent);
+    --line: var(--line-on-paper);
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 40;
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s ease, background-color .25s ease;
+  }
+  .site-header.is-scrolled {
+    background: var(--surface);
+    border-bottom-color: var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.9rem;
+  }
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .wordmark em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--primary);
+  }
+  .wordmark small {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 0.15rem;
+  }
+
+  .burger {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .burger-lines {
+    width: 1.15rem;
+    height: 0.7rem;
+    position: relative;
+  }
+  .burger-lines span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: var(--ink);
+    transition: transform .25s ease, opacity .25s ease, top .25s ease;
+  }
+  .burger-lines span:nth-child(1) { top: 0; }
+  .burger-lines span:nth-child(2) { top: 50%; }
+  .burger-lines span:nth-child(3) { top: 100%; }
+  .nav-open .burger-lines span:nth-child(1) { top: 50%; transform: rotate(45deg); }
+  .nav-open .burger-lines span:nth-child(2) { opacity: 0; }
+  .nav-open .burger-lines span:nth-child(3) { top: 50%; transform: rotate(-45deg); }
+
+  .main-nav {
+    position: fixed;
+    inset: 0;
+    top: calc(3.8rem + env(safe-area-inset-top, 0px));
+    background: var(--wood);
+    color: var(--ink);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    z-index: 30;
+  }
+  .nav-open .main-nav {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .main-nav ul {
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .main-nav a {
+    text-decoration: none;
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  .main-nav .nav-cta {
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-self: flex-start;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+    padding: 0.75rem 1.4rem;
+  }
+
+  @media (min-width: 61rem) {
+    .burger { display: none; }
+    .main-nav {
+      position: static;
+      background: transparent;
+      color: inherit;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+      transition: none;
+    }
+    .main-nav ul {
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      gap: 2.1rem;
+    }
+    .main-nav a { font-size: 0.95rem; font-family: 'Archivo', sans-serif; font-weight: 500; }
+    .main-nav .nav-cta {
+      margin-top: 0;
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 30rem;
+    overflow: hidden;
+    padding-block: 1.75rem;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(23,20,15,0.05) 0%, rgba(23,20,15,0.45) 55%, rgba(23,20,15,0.93) 100%);
+  }
+  .hero-copy-wrap { position: relative; z-index: 1; width: 100%; }
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    max-width: 34rem;
+  }
+  .hero-copy h1 {
+    font-size: clamp(2.1rem, 7vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .hero-copy h1 em {
+    font-style: italic;
+    color: var(--primary);
+  }
+  .hero-copy .lede {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 30rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.1rem;
+    margin-top: 0.4rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.5rem;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border: 1px solid var(--primary);
+    color: var(--on-primary);
+    background: var(--primary);
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .btn:hover { background: var(--primary-2); border-color: var(--primary-2); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: transparent;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line);
+    padding: 0.9rem 0;
+  }
+
+  @media (min-width: 61rem) {
+    .hero { min-height: 38rem; padding-block: 3rem; }
+  }
+
+  /* ---------- Categorías ---------- */
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 34rem;
+    margin-bottom: 2.25rem;
+  }
+  .section-head h2 {
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .categorias { padding-block: 2.5rem 3.5rem; }
+
+  .categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+  }
+  .categoria { display: flex; flex-direction: column; }
+  .categoria-media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .categoria-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .categoria:hover .categoria-media img { transform: scale(1.04); }
+  .categoria-body { padding-top: 0.65rem; }
+  .categoria-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.02rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+  .categoria-body p {
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    max-width: 26rem;
+  }
+
+  @media (min-width: 40rem) {
+    .categorias-grid { gap: 2rem 1.5rem; }
+    .categoria-body { padding-top: 0.85rem; }
+    .categoria-body h3 { font-size: 1.2rem; }
+    .categoria-body p { font-size: 0.92rem; }
+  }
+
+  @media (min-width: 61rem) {
+    .categorias-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem 2.25rem; }
+    .categoria-body h3 { font-size: 1.45rem; }
+  }
+
+  /* ---------- Proyectos ---------- */
+.proyectos { padding-block: 3.5rem 4rem; }
+.estilo-block { margin-bottom: 3rem; }
+.estilo-block:last-child { margin-bottom: 0; }
+.estilo-head { max-width: 30rem; margin-bottom: 1.25rem; }
+.estilo-head h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  margin-bottom: 0.4rem;
+}
+.estilo-head p { color: var(--ink-soft); font-size: 0.92rem; max-width: 26rem; }
+
+/* Móvil: scroll horizontal con snap — apilar 2-3 fotos en vertical (cada
+   una a pantalla casi completa) quedaba muy pesado y poco armonioso.
+   Todas las fotos del carrusel usan el mismo ancho aquí; la distinción
+   --big/--small solo se aplica desde el breakpoint de escritorio, donde
+   pasa a ser una cuadrícula fija (ver más abajo). */
+.estilo-grid {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1.25rem;
+  margin-inline: -1.25rem;
+  padding: 0 1.25rem 0.35rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.estilo-grid::-webkit-scrollbar { display: none; }
+.estilo-media {
+  flex: 0 0 78%;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  scroll-snap-align: start;
+}
+.estilo-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Escritorio: misma proporción (4/5) en todas las fotos — así cualquier
+   foto de origen (todas verticales, típicas de Instagram) se recorta de
+   forma predecible. La asimetría "editorial" viene del ANCHO de columna
+   (la primera foto es más ancha), no de forzar una caja panorámica sobre
+   una foto vertical, que es lo que producía recortes feos. */
+@media (min-width: 40rem) {
+  .estilo-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 1rem;
+    overflow-x: visible;
+    margin-inline: 0;
+    padding: 0;
+  }
+  .estilo-media { flex: none; }
+  .estilo-grid--rev { grid-template-columns: 1fr 1fr 1.6fr; }
+  .estilo-grid--rev .estilo-media--big { order: 3; }
+
+  /* Variante de 2 fotos: la grande pesa más que la pequeña, sin tercera columna. */
+  .estilo-grid--two { grid-template-columns: 1.6fr 1fr; }
+  .estilo-grid--two.estilo-grid--rev { grid-template-columns: 1fr 1.6fr; }
+  .estilo-grid--two.estilo-grid--rev .estilo-media--big { order: 2; }
+}
+
+  /* ---------- Utilidades de movimiento ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="wordmark">
+      Maite <em>Oregi</em>
+      <small>Interiorismo · Orio</small>
+    </a>
+
+    <button class="burger" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+      <span class="burger-lines"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#estudio">El estudio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#contacto" class="nav-cta">Pedir presupuesto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero: texto ya en redacción final (ver política de contenido en la
+       cabecera del archivo). La foto de fondo es real: publicación 1 de
+       @maite_oregi, un salón completo (sofá, pared negra, madera, ratán,
+       piel de vaca) que muestra el estilo del estudio en conjunto, no un
+       mueble suelto. Recortadas las barras negras del carrusel y el icono
+       de flecha "siguiente" de Instagram que aparecía superpuesto sobre la
+       imagen. Resolución nativa 828×642: la más alta disponible entre las
+       capturas guardadas, pero al venir de una captura de pantalla de
+       Instagram tiene un techo de nitidez en pantallas de escritorio
+       grandes — con fotografía real de la clienta se resolvería del todo. -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="img/hero-salon.jpg" alt="Salón de estilo con sofá tapizado en beige, pared en negro mate, mobiliario de madera y piel de vaca en el suelo">
+    </div>
+    <div class="container hero-copy-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Estudio en Orio, Gipuzkoa</p>
+        <h1 class="display">Interiorismo y reformas integrales en Orio, Gipuzkoa</h1>
+        <p class="lede">
+          Espacios con carácter, pensados para vivirse: diseño de interiores,
+          mobiliario y decoración a medida, desde la primera idea hasta el
+          último detalle.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn">Hablemos de tu proyecto</a>
+          <a href="#proyectos" class="btn-ghost">Ver proyectos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías: las 5 fotos SÍ son reales — capturas que Mnr guardó a mano
+       de publicaciones públicas de @maite_oregi, recortadas para quitar
+       precios/textos de anuncio y comprimidas aquí. Texto ya en redacción
+       final (ver política de contenido en la cabecera del archivo).
+       Sección clara (.section-light) para alternar con el negro del hero.
+       TODO (a petición de Mnr, para más adelante): convertir la imagen de
+       cada tarjeta en un carrusel horizontal con más fotos de esa categoría
+       (p. ej. alfombras tiene 6 disponibles en publicación 2). No implementado
+       todavía a propósito. -->
+  <section class="categorias section-light" id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Lo que trabajamos</p>
+        <h2 class="display">Reformas, mobiliario y textiles, con un mismo criterio</h2>
+      </div>
+      
+      <div class="categorias-grid">
+      <article class="categoria">
+        <div class="categoria-media">
+          <img src="img/categoria-dormitorios.jpg" alt="Dormitorio con cabecero de ratán, pared en azul oscuro con molduras y manta en tono terracota">
+      </div>
+      <div class="categoria-body">
+        <h3>Dormitorios</h3>
+        <p>Cabeceros, textiles y luz de mesilla pensados para el descanso, con el mismo cuidado que el resto de la casa.</p>
+      </div>
+      </article>
+      
+      <article class="categoria">
+        <div class="categoria-media">
+          <img src="img/categoria-iluminacion.jpg" alt="Lámparas colgantes de mimbre y ratán con luz cálida sobre un salón">
+        </div>
+        <div class="categoria-body">
+            <h3>Iluminación</h3>
+            <p>Lámparas y puntos de luz que marcan el tono cálido de cada espacio.</p>
+          </div>
+        </article>
+
+        <article class="categoria">
+          <div class="categoria-media">
+            <img src="img/categoria-mobiliario.jpg" alt="Sofá tapizado en tono crudo con cojín de inspiración étnica">
+          </div>
+          <div class="categoria-body">
+            <h3>Mobiliario</h3>
+            <p>Sofás y piezas a medida, elegidas para durar y para encajar en el espacio real.</p>
+          </div>
+        </article>
+
+        <article class="categoria">
+          <div class="categoria-media">
+            <img src="img/categoria-alfombras.jpg" alt="Alfombra kilim de fibra natural en un salón con luz natural">
+          </div>
+          <div class="categoria-body">
+            <h3>Alfombras y textiles</h3>
+            <p>Alfombras, cojines y ropa de hogar a juego con cada proyecto.</p>
+          </div>
+        </article>
+        
+        <article class="categoria">
+          <div class="categoria-media">
+            <img src="img/categoria-decoracion.jpg" alt="Silla de ratán, espejo de arco dorado y lámpara de pie con detalle dorado">
+          </div>
+          <div class="categoria-body">
+            <h3>Decoración y accesorios</h3>
+            <p>Los detalles que terminan de definir un espacio: espejos, lámparas, objetos.</p>
+          </div>
+        </article>
+
+        
+          <article class="categoria">
+            <div class="categoria-media">
+              <img src="img/categoria-reformas.jpg" alt="Baño reformado con estanterías de obra en negro y madera, ducha y mueble a medida">
+            </div>
+            <div class="categoria-body">
+              <h3>Reformas integrales</h3>
+              <p>Baños, cocinas y espacios completos: de la obra a la decoración final.</p>
+            </div>
+          </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos: "galería por estilo", no proyectos-caso individuales con
+     nombre de cliente — no tenemos ese material real, así que no se
+     inventa. Las 5 fotos SÍ son reales, capturas de @maite_oregi
+     (publicaciones 2 y 5), recortadas para quitar iconos/flechas de
+     carrusel y el texto de vídeo superpuesto. Sección oscura (sin
+     .section-light) para retomar la alternancia tras el beige de Categorías. -->
+<section class="proyectos" id="proyectos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Proyectos</p>
+      <h2 class="display">Dos maneras de vestir un espacio</h2>
+    </div>
+
+    <div class="estilo-block">
+  <div class="estilo-head">
+    <h3 class="display">Luminoso y acogedor</h3>
+    <p>Blancos suaves, madera clara y fibras naturales, para espacios que necesitan luz.</p>
+  </div>
+  <div class="estilo-grid estilo-grid--two">
+    <div class="estilo-media estilo-media--big">
+      <img src="img/proyecto-luminoso-1.jpg" alt="Salón luminoso con aparador blanco, mesa de centro redonda de madera y alfombra de fibra natural">
+    </div>
+    <div class="estilo-media estilo-media--small estilo-media--small1">
+      <img src="img/categoria-iluminacion.jpg" alt="Lámparas colgantes de mimbre y ratán con luz cálida sobre un salón">
+    </div>
+  </div>
+</div>
+
+    <div class="estilo-block">
+      <div class="estilo-head">
+        <h3 class="display">Con carácter y acento dorado</h3>
+        <p>Paredes con personalidad y detalles en latón que marcan la diferencia.</p>
+      </div>
+      <div class="estilo-grid estilo-grid--rev estilo-grid--two">
+        <div class="estilo-media estilo-media--big">
+          <img src="img/categoria-decoracion.jpg" alt="Silla de ratán, espejo de arco dorado y lámpara de pie con detalle dorado">
+        </div>
+        <div class="estilo-media estilo-media--small estilo-media--small1">
+          <img src="img/proyecto-caracter-2.jpg" alt="Dos espejos con marco de latón sobre una pared en tono terracota, encima de una consola oscura">
+        </div>
+      </div>
+    </div>
+
+    <div class="estilo-block">
+      <div class="estilo-head">
+        <h3 class="display">Cálido y natural</h3>
+        <p>Madera, boucle y fibras naturales: espacios pensados para quedarse en ellos.</p>
+      </div>
+      <div class="estilo-grid">
+        <div class="estilo-media estilo-media--big">
+          <img src="img/proyecto-natural-1.jpg" alt="Sofá redondo tapizado en boucle color crudo, con cojines, sobre pared en tono gris cálido">
+        </div>
+        <div class="estilo-media estilo-media--small estilo-media--small1">
+          <img src="img/proyecto-natural-2.jpg" alt="Sillas de madera maciza con asiento tapizado en crudo, junto a una mesa con tablero de cristal">
+        </div>
+        <div class="estilo-media estilo-media--small estilo-media--small2">
+          <img src="img/proyecto-natural-3.jpg" alt="Alfombra de piel de vaca bajo una mesa de centro de madera, en un salón con sofá beige">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+  (function () {
+    var header = document.getElementById('site-header');
+    var toggle = document.getElementById('nav-toggle');
+    var body = document.body;
+
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    toggle.addEventListener('click', function () {
+      var isOpen = body.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+
+    document.querySelectorAll('#main-nav a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        body.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
