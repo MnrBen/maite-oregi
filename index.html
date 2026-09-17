@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="styles.css">
 <title>Maite Oregi Decoración | Interiorismo en Orio, Gipuzkoa</title>
 <meta name="description" content="Estudio de interiorismo y reformas integrales en Orio, Gipuzkoa. Diseño de interiores, mobiliario, iluminación y decoración a medida.">
 <meta property="og:title" content="Maite Oregi Decoración — Interiorismo en Orio, Gipuzkoa">
@@ -44,454 +46,9 @@
   esa clase en el CSS.
   ============================================================
 -->
-
-<style>
-  /* ---------- Fuentes ---------- */
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..600;1,9..144,400..500&family=Archivo:wght@400;500;600;700&display=swap');
-
-  /* ---------- Tokens ---------- */
-  :root {
-    /* Color — paleta v2, ajustada al local real (según descripción de
-       Mnr, que lo ha visitado): paredes negro mate con grises "nardo"
-       oscuros, madera wengué, toques de roble miel y luz cálida de
-       lámparas. Tema único oscuro — decisión de marca, no un modo
-       "dark mode" añadido encima de un diseño claro. */
-    --bg:        #17140F;   /* pared negro mate, con fondo cálido */
-    --bg-alt:    #241E16;   /* gris "nardo" oscuro — secciones alternas */
-    --surface:   #1D1811;   /* superficie de tarjetas / cabecera al hacer scroll */
-    --ink:       #F3EADA;   /* texto — marfil cálido, como papel bajo luz de lámpara */
-    --ink-soft:  #B6A990;   /* texto secundario — taupe cálido */
-    --wood:      #4A2E1D;   /* madera wengué — usada en el menú móvil */
-    --primary:   #D3A05A;   /* latón / luz cálida — el acento que pidió Mnr */
-    --primary-2: #E6B571;   /* variante clara del acento, para hover */
-    --accent:    #9C3F2E;   /* brasa/terracota apagada — acento secundario, raro */
-    --line:      #3B3325;   /* líneas y bordes sobre fondo oscuro */
-    --on-primary: #1B1710;  /* texto sobre el acento latón (que es claro) */
-
-    /* Sección clara alterna — mismo espíritu (cálido, natural, sin
-       blanco puro), para romper la monotonía de tanto negro seguido.
-       Contraste verificado (WCAG): ink-on-paper 12:1, ink-soft 5.8:1,
-       accent-on-paper 4.75:1 — todos pasan AA para texto normal. */
-    --paper:            #E4D9C4;  /* lino/beige cálido — sección clara */
-    --ink-on-paper:      #241C13;
-    --ink-soft-on-paper: #5C4E3B;
-    --line-on-paper:     rgba(36, 28, 19, .16);
-
-    font-size: 16px;
-  }
-
-  :root { color-scheme: dark; }
-
-  /* ---------- Reset ligero ---------- */
-  * { box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3 { margin: 0; }
-  p { margin: 0; }
-  a { color: inherit; }
-  button { font: inherit; }
-  ul { margin: 0; padding: 0; list-style: none; }
-
-  .display {
-    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-    font-optical-sizing: auto;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 76rem;
-    margin-inline: auto;
-    padding-inline: 1.25rem;
-  }
-
-  .eyebrow {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 600;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--primary-2);
-  }
-
-  /* Sección clara: se aplica a una <section> completa (no a un .container
-     interior), para que el color de fondo llegue de lado a lado. Redefine
-     los tokens de texto/línea localmente — como el resto de componentes ya
-     usa var(--ink), var(--ink-soft) y var(--line) en vez de colores fijos,
-     todo lo que haya dentro (títulos, párrafos, eyebrows) se adapta solo,
-     sin tener que duplicar reglas. Así se puede alternar clara/oscura en
-     cualquier sección futura solo añadiendo esta clase. */
-  .section-light {
-    background: var(--paper);
-    color: var(--ink-on-paper);
-    --ink: var(--ink-on-paper);
-    --ink-soft: var(--ink-soft-on-paper);
-    --primary-2: var(--accent);
-    --line: var(--line-on-paper);
-  }
-
-  /* ---------- Header ---------- */
-  .site-header {
-    position: sticky;
-    top: env(safe-area-inset-top, 0px);
-    z-index: 40;
-    background: var(--bg);
-    border-bottom: 1px solid transparent;
-    transition: border-color .25s ease, background-color .25s ease;
-  }
-  .site-header.is-scrolled {
-    background: var(--surface);
-    border-bottom-color: var(--line);
-  }
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-block: 0.9rem;
-  }
-  .wordmark {
-    font-family: 'Fraunces', serif;
-    font-size: 1.15rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    color: var(--ink);
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-  }
-  .wordmark em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--primary);
-  }
-  .wordmark small {
-    font-family: 'Archivo', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-top: 0.15rem;
-  }
-
-  .burger {
-    display: grid;
-    place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  .burger-lines {
-    width: 1.15rem;
-    height: 0.7rem;
-    position: relative;
-  }
-  .burger-lines span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1.5px;
-    background: var(--ink);
-    transition: transform .25s ease, opacity .25s ease, top .25s ease;
-  }
-  .burger-lines span:nth-child(1) { top: 0; }
-  .burger-lines span:nth-child(2) { top: 50%; }
-  .burger-lines span:nth-child(3) { top: 100%; }
-  .nav-open .burger-lines span:nth-child(1) { top: 50%; transform: rotate(45deg); }
-  .nav-open .burger-lines span:nth-child(2) { opacity: 0; }
-  .nav-open .burger-lines span:nth-child(3) { top: 50%; transform: rotate(-45deg); }
-
-  .main-nav {
-    position: fixed;
-    inset: 0;
-    top: calc(3.8rem + env(safe-area-inset-top, 0px));
-    background: var(--wood);
-    color: var(--ink);
-    transform: translateY(-8px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s ease, transform .25s ease;
-    z-index: 30;
-  }
-  .nav-open .main-nav {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  .main-nav ul {
-    padding: 2rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-  }
-  .main-nav a {
-    text-decoration: none;
-    font-family: 'Fraunces', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-  }
-  .main-nav .nav-cta {
-    margin-top: 0.5rem;
-    display: inline-flex;
-    align-self: flex-start;
-    font-family: 'Archivo', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: 1px solid var(--ink);
-    padding: 0.75rem 1.4rem;
-  }
-
-  @media (min-width: 61rem) {
-    .burger { display: none; }
-    .main-nav {
-      position: static;
-      background: transparent;
-      color: inherit;
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-      transition: none;
-    }
-    .main-nav ul {
-      flex-direction: row;
-      align-items: center;
-      padding: 0;
-      gap: 2.1rem;
-    }
-    .main-nav a { font-size: 0.95rem; font-family: 'Archivo', sans-serif; font-weight: 500; }
-    .main-nav .nav-cta {
-      margin-top: 0;
-      border-color: var(--ink);
-      color: var(--ink);
-    }
-  }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    min-height: 30rem;
-    overflow: hidden;
-    padding-block: 1.75rem;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .hero-bg img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 42%;
-  }
-  .hero-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(23,20,15,0.05) 0%, rgba(23,20,15,0.45) 55%, rgba(23,20,15,0.93) 100%);
-  }
-  .hero-copy-wrap { position: relative; z-index: 1; width: 100%; }
-  .hero-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    max-width: 34rem;
-  }
-  .hero-copy h1 {
-    font-size: clamp(2.1rem, 7vw, 3.4rem);
-    font-weight: 400;
-    line-height: 1.05;
-    text-wrap: balance;
-    letter-spacing: -0.01em;
-  }
-  .hero-copy h1 em {
-    font-style: italic;
-    color: var(--primary);
-  }
-  .hero-copy .lede {
-    font-size: 1.02rem;
-    color: var(--ink-soft);
-    max-width: 30rem;
-  }
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.1rem;
-    margin-top: 0.4rem;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.9rem 1.5rem;
-    font-family: 'Archivo', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    border: 1px solid var(--primary);
-    color: var(--on-primary);
-    background: var(--primary);
-    transition: background-color .2s ease, color .2s ease;
-  }
-  .btn:hover { background: var(--primary-2); border-color: var(--primary-2); }
-  .btn-ghost {
-    background: transparent;
-    color: var(--ink);
-    border-color: transparent;
-    font-size: 0.85rem;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--line);
-    padding: 0.9rem 0;
-  }
-
-  @media (min-width: 61rem) {
-    .hero { min-height: 38rem; padding-block: 3rem; }
-  }
-
-  /* ---------- Categorías ---------- */
-  .section-head {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    max-width: 34rem;
-    margin-bottom: 2.25rem;
-  }
-  .section-head h2 {
-    font-size: clamp(1.7rem, 5vw, 2.4rem);
-    font-weight: 400;
-    line-height: 1.15;
-    text-wrap: balance;
-  }
-  .categorias { padding-block: 2.5rem 3.5rem; }
-
-  .categorias-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1rem;
-  }
-  .categoria { display: flex; flex-direction: column; }
-  .categoria-media {
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-  }
-  .categoria-media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .5s ease;
-  }
-  .categoria:hover .categoria-media img { transform: scale(1.04); }
-  .categoria-body { padding-top: 0.65rem; }
-  .categoria-body h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 1.02rem;
-    line-height: 1.2;
-    margin-bottom: 0.25rem;
-  }
-  .categoria-body p {
-    color: var(--ink-soft);
-    font-size: 0.82rem;
-    max-width: 26rem;
-  }
-
-  @media (min-width: 40rem) {
-    .categorias-grid { gap: 2rem 1.5rem; }
-    .categoria-body { padding-top: 0.85rem; }
-    .categoria-body h3 { font-size: 1.2rem; }
-    .categoria-body p { font-size: 0.92rem; }
-  }
-
-  @media (min-width: 61rem) {
-    .categorias-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem 2.25rem; }
-    .categoria-body h3 { font-size: 1.45rem; }
-  }
-
-  /* ---------- Proyectos ---------- */
-.proyectos { padding-block: 3.5rem 4rem; }
-.estilo-block { margin-bottom: 3rem; }
-.estilo-block:last-child { margin-bottom: 0; }
-.estilo-head { max-width: 30rem; margin-bottom: 1.25rem; }
-.estilo-head h3 {
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
-  font-size: clamp(1.3rem, 4vw, 1.7rem);
-  margin-bottom: 0.4rem;
-}
-.estilo-head p { color: var(--ink-soft); font-size: 0.92rem; max-width: 26rem; }
-
-/* Móvil: scroll horizontal con snap — apilar 2-3 fotos en vertical (cada
-   una a pantalla casi completa) quedaba muy pesado y poco armonioso.
-   Todas las fotos del carrusel usan el mismo ancho aquí; la distinción
-   --big/--small solo se aplica desde el breakpoint de escritorio, donde
-   pasa a ser una cuadrícula fija (ver más abajo). */
-.estilo-grid {
-  display: flex;
-  gap: 0.75rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 1.25rem;
-  margin-inline: -1.25rem;
-  padding: 0 1.25rem 0.35rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.estilo-grid::-webkit-scrollbar { display: none; }
-.estilo-media {
-  flex: 0 0 78%;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  scroll-snap-align: start;
-}
-.estilo-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
-/* Escritorio: misma proporción (4/5) en todas las fotos — así cualquier
-   foto de origen (todas verticales, típicas de Instagram) se recorta de
-   forma predecible. La asimetría "editorial" viene del ANCHO de columna
-   (la primera foto es más ancha), no de forzar una caja panorámica sobre
-   una foto vertical, que es lo que producía recortes feos. */
-@media (min-width: 40rem) {
-  .estilo-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    gap: 1rem;
-    overflow-x: visible;
-    margin-inline: 0;
-    padding: 0;
-  }
-  .estilo-media { flex: none; }
-  .estilo-grid--rev { grid-template-columns: 1fr 1fr 1.6fr; }
-  .estilo-grid--rev .estilo-media--big { order: 3; }
-
-  /* Variante de 2 fotos: la grande pesa más que la pequeña, sin tercera columna. */
-  .estilo-grid--two { grid-template-columns: 1.6fr 1fr; }
-  .estilo-grid--two.estilo-grid--rev { grid-template-columns: 1fr 1.6fr; }
-  .estilo-grid--two.estilo-grid--rev .estilo-media--big { order: 2; }
-}
-
-  /* ---------- Utilidades de movimiento ---------- */
-  @media (prefers-reduced-motion: reduce) {
-    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-  }
-</style>
 </head>
+
+
 <body>
 <header class="site-header" id="site-header">
   <div class="container header-inner">
@@ -640,7 +197,7 @@
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">Proyectos</p>
-      <h2 class="display">Dos maneras de vestir un espacio</h2>
+      <h2 class="display">Maneras de vestir un espacio</h2>
     </div>
 
     <div class="estilo-block">
@@ -692,32 +249,80 @@
     </div>
   </div>
 </section>
+
+<section class="estudio section-light" id="estudio">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">El estudio</p>
+      <h2 class="display">Maite Oregi, diseñadora de interiores en Orio</h2>
+    </div>
+    <div class="estudio-layout">
+      <div class="estudio-media">
+        <img src="img/estudio-maite.jpg" alt="Maite Oregi frente al escaparate de su estudio de interiorismo en Orio">
+      </div>
+      <div class="estudio-copy">
+        <p>Formada en decoración y diseño gráfico, Maite dirige su propio estudio en Orio —vive en Aia, muy cerca— y trae mobiliario de proveedores del País Vasco, del resto de España y de Italia, combinando estilos y materiales según lo que pide cada proyecto.</p>
+        <p>Su forma de trabajar parte siempre del cliente: asesora, prepara planos y presupuestos, y acompaña todo el proceso, desde la primera idea hasta que el espacio queda terminado.</p>
+        <blockquote class="estudio-quote">
+          <p class="display">&ldquo;Cada persona es quien decide sobre sus propios gustos.&rdquo;</p>
+          <footer>Maite Oregi, en una entrevista a Karkara</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
-<script>
-  (function () {
-    var header = document.getElementById('site-header');
-    var toggle = document.getElementById('nav-toggle');
-    var body = document.body;
+<footer class="site-footer" id="contacto">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="wordmark">
+        Maite <em>Oregi</em>
+        <small>Interiorismo · Orio</small>
+      </a>
+      <p class="footer-tagline">Diseño de interiores y reformas integrales en Orio, Gipuzkoa.</p>
+    </div>
 
-    window.addEventListener('scroll', function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 8);
-    }, { passive: true });
+    <div class="footer-contact">
+      <p class="eyebrow footer-heading">Contacto</p>
+      <address>
+        Endaia Plaza, 3<br>
+        20810 Orio, Gipuzkoa
+      </address>
+      <a href="tel:+34943868298" class="footer-link">943 86 82 98</a>
+    </div>
 
-    toggle.addEventListener('click', function () {
-      var isOpen = body.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    });
+    <div class="footer-hours">
+      <p class="eyebrow footer-heading">Horario</p>
+      <p class="hours-line">Martes a viernes<br>10:00–13:00 y 16:30–19:30</p>
+      <p class="hours-line">Sábado<br>10:00–13:00</p>
+      <p class="hours-line">Domingo y lunes<br>Cerrado</p>
+    </div>
 
-    document.querySelectorAll('#main-nav a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        body.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  })();
-</script>
+    <div class="footer-social">
+      <p class="eyebrow footer-heading">Síguenos</p>
+      <a href="https://www.instagram.com/maite_oregi/" target="_blank" rel="noopener" class="footer-link">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+  Instagram
+</a>
+<a href="https://www.facebook.com/maiteoregi/" target="_blank" rel="noopener" class="footer-link">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+  </svg>
+  Facebook
+</a>
+    </div>
+  </div>
 
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Maite Oregi. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="./main.js" defer></script>
 </body>
 </html>
